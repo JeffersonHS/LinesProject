@@ -82,7 +82,7 @@ function textZ0_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of textZ0 as text
 %        str2double(get(hObject,'String')) returns contents of textZ0 as a double
 z0 = str2double(get(hObject, 'String'));
-handles.metricdata.textZ0 = z0
+handles.metricdata.textZ0 = z0;
 guidata(hObject, handles)
 
 
@@ -107,10 +107,18 @@ function textH_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of textH as text
 %        str2double(get(hObject,'String')) returns contents of textH as a double
-h = str2double(get(hObject, 'String'));
-handles.metricdata.textH = h
-guidata(hObject, handles)
-
+contents = cellstr(get(hObject, 'String'));
+pop_choice = contents(get(hObject, 'Value'));
+pop..choice
+if(strcmp(pop_choice, '0.01'))
+    h=0.01
+elseif(strcmp(pop_choice, '0.02'))
+    h=0.02
+elseif(strcmp(pop_choice, '0.03'))
+    h=0.03
+end
+handles.metricdata.textH = h;
+    
 % --- Executes during object creation, after setting all properties.
 function textH_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to textH (see GCBO)
@@ -223,3 +231,11 @@ function buttonCalc_Callback(hObject, eventdata, handles)
 % hObject    handle to buttonCalc (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+z0 = handles.metricdata.textZ0;
+h = handles.metricdata.textH;
+Er = handles.metricdata.textEr;
+A = (z0/60)*sqrt((Er+1)/2) + ((Er-1)/(Er+1))*(0.23+(0.11)/(Er));
+B = (377*pi)/(2*z0*sqrt(Er));
+%W = (2000*h/pi)*(B-1-log(2*B-1)+((Er-1)/(2*Er))*(log(B-1)+0.39-(0.61/Er)));
+W = h;
+set(handles.textW, 'String', W);
