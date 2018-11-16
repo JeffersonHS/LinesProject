@@ -22,7 +22,7 @@ function varargout = microstrips(varargin)
 
 % Edit the above text to modify the response to help microstrips
 
-% Last Modified by GUIDE v2.5 16-Nov-2018 16:29:02
+% Last Modified by GUIDE v2.5 16-Nov-2018 17:09:05
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -42,12 +42,12 @@ else
     gui_mainfcn(gui_State, varargin{:});
 end
 % End initialization code - DO NOT EDIT
-
+imshow('microstrip.jpg')
 
 % --- Executes just before microstrips is made visible.
 function microstrips_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
-% hObject    handle to figure
+% hObject    handle to axes1
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to microstrips (see VARARGIN)
@@ -65,13 +65,12 @@ guidata(hObject, handles);
 % --- Outputs from this function are returned to the command line.
 function varargout = microstrips_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
-% hObject    handle to figure
+% hObject    handle to axes1
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
-
 
 
 function textZ0_Callback(hObject, eventdata, handles)
