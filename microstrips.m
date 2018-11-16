@@ -279,7 +279,7 @@ function buttonCalc_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 z0 = handles.metricdata.textZ0;
-h = handles.metricdata.textH;
+h = handles.metricdata.textH/1000;
 Er = handles.metricdata.textEr;
 f = handles.metricdata.textF;
 sigma = handles.metricdata.textSigma;
@@ -298,7 +298,7 @@ elseif((W2/h) > 2)
     W = W2;
 end
 
-if(((W/h) > 0) && ((W/h) < 0.6))
+if(((W/h) >= 0) && ((W/h) < 0.6))
     Lambda = (300000000/(f*sqrt(Er)))*sqrt(Er/(1+0.6*(Er-1)*(W/h)^0.0297));
     set(handles.textLambda, 'String', Lambda);
 elseif((W/h) >= 0.6)
