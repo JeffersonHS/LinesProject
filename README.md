@@ -19,3 +19,9 @@ Guia de Onda Retangular:
 
 ### Linguagem
 MatLab
+
+### Como compilar o projeto
+* Para rodar: 
+```
+Init
+```
