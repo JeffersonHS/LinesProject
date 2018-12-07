@@ -1,5 +1,5 @@
 # LinesProject
-Projeto final da disciplina de Linhas de Transmissão
+Projeto final da disciplina de Linhas de Transmissão ministrada pelo professor José Patrocínio
 
 ## Resultados:
 Microfita:
